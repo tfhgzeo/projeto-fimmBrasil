@@ -6,76 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/d455abbc56.js" crossorigin="anonymous"></script>
-    <!-- <link href="css/home.css" rel="stylesheet"> -->
-    <style>
-        body {
-            background-color: #212427;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+    <link href="public/css/home.css" rel="stylesheet">
 
-        .menu {
-            /* background-color: red; */
-            width: 8%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            padding-top: 20px;
-            display: block;
-            border-right: 1px solid #4D4D4D;
-        }
-
-        .menu div {
-            width: 100%;
-            margin-bottom: 50px;
-
-        }
-
-        .content {
-            /* background-color: green; */
-            width: 92%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        .btnHome,
-        .btnRelarorio,
-        .btnSolicitacao,
-        .btnFornecedores {
-            font-size: 35px;
-            color: #CACACA;
-            cursor: pointer;
-        }
-
-        .btnCadastro {
-            font-size: 40px;
-            color: #CACACA;
-            cursor: pointer;
-        }
-
-        .btnUser {
-            font-size: 40px;
-            color: #CACACA;
-        }
-
-        .menu i:hover {
-            color: #9b9b9b;
-        }
-
-        .sair {
-            font-size: 40px;
-            color: #CACACA;
-            position: absolute;
-            left: 3.2%;
-            top: 93%;
-        }
-    </style>
 </head>
 
 <body>
@@ -118,12 +50,8 @@
     <div class="content">
     </div>
 
-    <script>
-        var btnSair = document.getElementsByClassName("sair")[0];
-        btnSair.addEventListener("click", (event) => {
-            var form = document.getElementsByClassName("formSair")[0]
-            form.submit();
-        });
+    <script src="public/js/home.js">
+
     </script>
 </body>
 
