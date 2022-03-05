@@ -19,8 +19,8 @@
         <div>
             <i class="fa-solid fa-circle-user btnUser"></i>
         </div>
-        <div>
-            <i class="fa-solid fa-cart-flatbed btnHome"></i>
+        <div class="">
+            <i id="btnHome" class="fa-solid fa-cart-flatbed btnHome"></i>
         </div>
         <div>
             <i class="fa-solid fa-chart-line btnRelarorio"></i>
@@ -48,6 +48,86 @@
     </div>
 
     <div class="content">
+
+        <div class="contentHome">
+            <div class="homeTop">
+
+            </div>
+
+            <div class="homeBotton">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>EPI</th>
+                            <th>COD</th>
+                            <th>TIPO</th>
+                            <th>QUANTIDADE</th>
+                            <th>TAMANHO</th>
+                            <th>ESTOQUE</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id='listaEpis'></tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="contentRelatorio">
+            <h1>Pagina de Relatórios</h1>
+        </div>
+
+        <div class="contentSolicitacao">
+            <h1>Pagina de Solicitacao</h1>
+        </div>
+
+        <div class="contentFornecedores">
+            <h1>Pagina de Fornecedores</h1>
+        </div>
+
+        <div class="contentCadastro">
+            <div id="cad">
+                <form method="post" action="">
+                    <h1 id="Titulo">Cadastro de Usuarios</h1>
+
+                    <p>
+                        <label for="cad_Login">Login</label>
+                        <input id="cad_Login" name="cad_Login" required="required" type="text" placeholder="login" />
+                    </p>
+
+                    <p>
+                        <label for="cad_senha">Senha</label>
+                        <input id="cad_senha" name="cad_senha" required="required" type="password"
+                            placeholder="Senha" />
+                    </p>
+
+                    <p>
+                        <label for="cad_confirmar_senha">Confirme a sua senha</label>
+                        <input id="cad_confirmar_senha" name="cad_confirmar_senha" required="required" type="password"
+                            placeholder="Confirme a sua senha" />
+                    </p>
+
+                    <p>
+                        <label for="cad_cargo">Cargo</label>
+                        <input id="cad_cargo" name="cad_cargo" required="required" type="text" placeholder="Cargo" />
+                    </p>
+
+
+                    <p>
+                        <label for="cad_matricula">Matricula</label>
+                        <input id="cad_matricula" name="cad_matricula" required="required" type="text"
+                            placeholder="Matriucla" />
+                    </p>
+
+
+
+                    <p>
+                        <input type="submit" value="Cadastrar" />
+                    </p>
+                </form>
+            </div>
+        </div>
+
     </div>
 
     <script src="public/js/home.js">

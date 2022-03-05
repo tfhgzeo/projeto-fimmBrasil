@@ -77,6 +77,11 @@ app.get("/", (req, res) => {
     }
 });
 
+app.get("/buscarEpis", async (req, res) => {
+    var epis = await db.buscaEpi();
+    res.send(epis);
+});
+
 app.listen(port, () => {
     console.log("Servidor rodando");
 });

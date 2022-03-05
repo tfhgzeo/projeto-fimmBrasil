@@ -1,16 +1,38 @@
-async function teste(Usuario, senha) {
+async function teste() {
     const db = require("./db");
-    const usuario = await db.verificaLogin(Usuario);
-    if (usuario[0]) {
-        console.log("usuario encontrado")
-        if (senha == usuario[0].senha) {
-            console.log("Senha correta, login altorizado")
-        }else{
-            console.log("Senha incorreta, verifique a senha")
-        }
-    }else{
-        console.log("usuario não encontrado")
-    }
+    const usuario = await db.buscaEpi();
+    console.log(usuario);
 }
 
-teste("Gustavo", "Nmzvivli@Iqzma");
+teste();
+
+function desenhar() {
+    const tbody = document.getElementById("listaRegistrosBody");
+    if (tbody) {
+        var data = listaRegistros.usuarios;
+        if (FILTRO.trim()) {
+            const expReg = eval(
+                `/${FILTRO.trim().replace(/[^\d\w]+/g, ".*")}/i`
+            );
+            data = data.filter((usuario) => {
+                return expReg.test(usuario.nome) || expReg.test(usuario.fone);
+            });
+        }
+        data = data
+            .sort((a, b) => {
+                return a.nome < b.nome ? -1 : 1;
+            })
+            .map((usuario) => {
+                return `<tr>
+                        <td>${usuario.id}</td>
+                        <td>${usuario.nome}</td>
+                        <td>${usuario.fone}</td>
+                        <td>
+                            <button onclick='vizualizar("cadastro",false,${usuario.id})'>Editar</button>
+                            <button class='vermelho' onclick='perguntarSeDeleta(${usuario.id})'>Deletar</button>
+                        </td>
+                    </tr>`;
+            });
+        tbody.innerHTML = data.join("");
+    }
+}
