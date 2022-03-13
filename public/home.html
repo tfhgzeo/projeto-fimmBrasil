@@ -49,13 +49,33 @@
 
     <div class="content">
 
+        <div id="contentLoad" class="contentLoad displayNone">
+            <div class="loader"></div>
+        </div>
+
         <div class="contentHome">
             <div class="homeTop">
-
+                <button type="button" id="atualizaTabela"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+                <div class="filtro">
+                    <div class="filtroEpi">
+                        <input id="epiFilter" type="text" name="epiFilter" value="" onkeyup="filtrarNome()"
+                            placeholder="Nome">
+                    </div>
+                    <div class="filtroCod">
+                        <input id="codFilter" type="text" name="filtraCod" value="" onkeyup="filtraCod()"
+                            placeholder="Codigo">
+                    </div>
+                    <div class="deleteEpi">
+                        <form method="get" action="/deletaEpi" id="formDeleteEpi">
+                            <input id="deleteEpi" type="number" name="inputDelete" value="" placeholder="ID">
+                            <input id="btnDeletEpi" type="submit" name="delete" value="Deletar">
+                        </form>
+                    </div>
+                </div>
             </div>
 
             <div class="homeBotton">
-                <table>
+                <table class="fixed_header">
                     <thead>
                         <tr>
                             <th>EPI</th>
@@ -64,7 +84,6 @@
                             <th>QUANTIDADE</th>
                             <th>TAMANHO</th>
                             <th>ESTOQUE</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody id='listaEpis'></tbody>
@@ -87,39 +106,41 @@
 
         <div class="contentCadastro">
             <div id="cad">
-                <form method="post" action="">
-                    <h1 id="Titulo">Cadastro de Usuarios</h1>
+                <form id="cadastrarEpi" method="GET" action="/cadastrarEpis">
+                    <h1 id="Titulo">Cadastro de Equipamentos</h1>
 
                     <p>
-                        <label for="cad_Login">Login</label>
-                        <input id="cad_Login" name="cad_Login" required="required" type="text" placeholder="login" />
+                        <label for="epi">Equipamento</label>
+                        <input id="epi" name="epi" required="required" type="text" placeholder="epi" />
                     </p>
 
                     <p>
-                        <label for="cad_senha">Senha</label>
-                        <input id="cad_senha" name="cad_senha" required="required" type="password"
-                            placeholder="Senha" />
+                        <label for="cod">Codigo</label>
+                        <input id="cod" name="cod" required="required" type="number" placeholder="Codigo" />
                     </p>
 
                     <p>
-                        <label for="cad_confirmar_senha">Confirme a sua senha</label>
-                        <input id="cad_confirmar_senha" name="cad_confirmar_senha" required="required" type="password"
-                            placeholder="Confirme a sua senha" />
+                        <label for="tipo">Tipo</label>
+                        <input id="tipo" name="tipo" required="required" type="text" placeholder="Tipo" />
                     </p>
 
                     <p>
-                        <label for="cad_cargo">Cargo</label>
-                        <input id="cad_cargo" name="cad_cargo" required="required" type="text" placeholder="Cargo" />
+                        <label for="quantidade">Quantidade</label>
+                        <input id="quantidade" name="quantidade" required="required" type="number"
+                            placeholder="quantidade" />
                     </p>
 
 
                     <p>
-                        <label for="cad_matricula">Matricula</label>
-                        <input id="cad_matricula" name="cad_matricula" required="required" type="text"
-                            placeholder="Matriucla" />
+                        <label for="tamanho">Tamanho</label>
+                        <input id="tamanho" name="tamanho" required="required" type="text" placeholder="tamanho" />
                     </p>
 
-
+                    <p>
+                        <label for="estoque">Estoque Minimo</label>
+                        <input id="estoque" name="estoque" required="required" type="number"
+                            placeholder="Estoque Minimo" />
+                    </p>
 
                     <p>
                         <input type="submit" value="Cadastrar" />
@@ -127,12 +148,8 @@
                 </form>
             </div>
         </div>
-
     </div>
-
-    <script src="public/js/home.js">
-
-    </script>
+    <script src="public/js/home.js"></script>
 </body>
 
 </html>

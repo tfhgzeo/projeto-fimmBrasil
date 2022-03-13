@@ -37,16 +37,13 @@ app.set("views", path.join(__dirname, "/public"));
 app.post("/logar", async (req, res, next) => {
     const usuario = await db.verificaLogin(req.body.login);
     if (usuario[0]) {
-        console.log("usuario encontrado");
         if (usuario[0].senha == req.body.senha) {
-            console.log("Senha correta, login aprovado");
             req.session.login = req.body.login;
             res.render("home", {
                 Nome: usuario[0].login,
                 cargo: usuario[0].cargo,
             });
         } else {
-            console.log("Senha incorreta, verifique a senha");
             var dataResult = {
                 usuario: "ok",
                 senha: "erro",
@@ -54,7 +51,6 @@ app.post("/logar", async (req, res, next) => {
             res.render("index");
         }
     } else {
-        console.log("Usuario não encontrado");
         res.render("index");
     }
 });
@@ -65,21 +61,67 @@ app.post("/deslogar", (req, res) => {
     res.render("index");
 });
 
-app.get("/cadastrar", (req, res) => {});
+app.get("/cadastrarEpis", async (req, res) => {
+    let epi = req.query.epi;
+    let cod = req.query.cod;
+    let tipo = req.query.tipo;
+    let quantidade = req.query.quantidade;
+    let tamanho = req.query.tamanho;
+    let estoque = req.query.estoque;
 
-app.get("/", (req, res) => {
-    if (req.session.login) {
-        console.log("com sessão");
-        res.render("home");
+    var verificar = await db.buscaEpiPorEpi(epi);
+
+    if (verificar[0]) {
+        res.send("cadastrado");
+        console.log("Epi ja Cadastrado");
+        return;
     } else {
-        console.log("sem sessão");
-        res.render("index");
+        let verificar = await db.buscaEpiPorCod(cod);
+        if (verificar[0]) {
+            res.send("Cod de Epi ja cadastrado");
+            console.log("codCadastrado");
+        } else {
+            let insercao = await db.inserirEpi(
+                epi,
+                cod,
+                tipo,
+                quantidade,
+                tamanho,
+                estoque
+            );
+            console.log(insercao);
+            res.send(insercao);
+        }
     }
 });
 
 app.get("/buscarEpis", async (req, res) => {
-    var epis = await db.buscaEpi();
-    res.send(epis);
+    if (req.session.login) {
+        var epis = await db.buscaEpi();
+        res.send(epis);
+    } else {
+        res.render("index");
+    }
+});
+
+app.get("/deletaEpi", async (req, res) => {
+    console.log("Chamou o deleta");
+    console.log(req.query.id);
+    let deletar = await db.deleteEpi(req.query.id);
+
+    if (deletar == "ok") {
+        res.send("ok");
+    } else {
+        res.send("erro");
+    }
+});
+
+app.get("/", (req, res) => {
+    if (req.session.login) {
+        res.render("home");
+    } else {
+        res.render("index");
+    }
 });
 
 app.listen(port, () => {
