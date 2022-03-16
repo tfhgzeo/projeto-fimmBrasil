@@ -5,7 +5,7 @@ const helmet = require("helmet");
 require("dotenv").config();
 const db = require("./db");
 
-const port = 3000;
+const port = process.env.PORT;
 var path = require("path");
 const { MemoryStore } = require("express-session");
 const app = express();
@@ -17,6 +17,7 @@ app.use(
         maxAge: Date.now() + 30 * 86400 * 1000,
     })
 );
+
 app.use(bodyparser.urlencoded({ extended: true }));
 
 app.use(function (req, res, next) {

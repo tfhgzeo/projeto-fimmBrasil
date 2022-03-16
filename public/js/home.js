@@ -45,85 +45,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     // BOTES
     var btnHome = document.querySelector(".btnHome");
-    var btnRelatorio = document.querySelector(".btnRelarorio");
-    var btnSolicitacao = document.querySelector(".btnSolicitacao");
-    var btnFornecedores = document.querySelector(".btnFornecedores");
     var btnCadastro = document.querySelector(".btnCadastro");
 
     // CONTEUDOS
     var contentHome = document.querySelector(".contentHome");
-    var contentRelatorio = document.querySelector(".contentRelatorio");
-    var contentSolicitacao = document.querySelector(".contentSolicitacao");
-    var contentFornecedores = document.querySelector(".contentFornecedores");
     var contentCadastro = document.querySelector(".contentCadastro");
 
     btnHome.style.color = "#D5CF2F";
-    contentRelatorio.classList.add("displayNone");
-    contentSolicitacao.classList.add("displayNone");
-    contentFornecedores.classList.add("displayNone");
     contentCadastro.classList.add("displayNone");
 
     btnHome.addEventListener("click", (event) => {
         event.preventDefault();
 
         btnHome.style.color = "#D5CF2F";
-        btnRelatorio.style.color = "#CACACA";
-        btnSolicitacao.style.color = "#CACACA";
-        btnFornecedores.style.color = "#CACACA";
         btnCadastro.style.color = "#CACACA";
 
         contentHome.classList.remove("displayNone");
-        contentRelatorio.classList.add("displayNone");
-        contentSolicitacao.classList.add("displayNone");
-        contentFornecedores.classList.add("displayNone");
-        contentCadastro.classList.add("displayNone");
-    });
-
-    btnRelatorio.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        btnHome.style.color = "#CACACA";
-        btnRelatorio.style.color = "#D5CF2F";
-        btnSolicitacao.style.color = "#CACACA";
-        btnFornecedores.style.color = "#CACACA";
-        btnCadastro.style.color = "#CACACA";
-
-        contentHome.classList.add("displayNone");
-        contentRelatorio.classList.remove("displayNone");
-        contentSolicitacao.classList.add("displayNone");
-        contentFornecedores.classList.add("displayNone");
-        contentCadastro.classList.add("displayNone");
-    });
-
-    btnSolicitacao.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        btnHome.style.color = "#CACACA";
-        btnRelatorio.style.color = "#CACACA";
-        btnSolicitacao.style.color = "#D5CF2F";
-        btnFornecedores.style.color = "#CACACA";
-        btnCadastro.style.color = "#CACACA";
-
-        contentHome.classList.add("displayNone");
-        contentRelatorio.classList.add("displayNone");
-        contentSolicitacao.classList.remove("displayNone");
-        contentFornecedores.classList.add("displayNone");
-        contentCadastro.classList.add("displayNone");
-    });
-
-    btnFornecedores.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        btnHome.style.color = "#CACACA";
-        btnRelatorio.style.color = "#CACACA";
-        btnSolicitacao.style.color = "#CACACA";
-        btnFornecedores.style.color = "#D5CF2F";
-        btnCadastro.style.color = "#CACACA";
-
-        contentHome.classList.add("displayNone");
-        contentRelatorio.classList.add("displayNone");
-        contentSolicitacao.classList.add("displayNone");
-        contentFornecedores.classList.remove("displayNone");
         contentCadastro.classList.add("displayNone");
     });
 
@@ -131,15 +68,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         event.preventDefault();
 
         btnHome.style.color = "#CACACA";
-        btnRelatorio.style.color = "#CACACA";
-        btnSolicitacao.style.color = "#CACACA";
-        btnFornecedores.style.color = "#CACACA";
         btnCadastro.style.color = "#D5CF2F";
 
         contentHome.classList.add("displayNone");
-        contentRelatorio.classList.add("displayNone");
-        contentSolicitacao.classList.add("displayNone");
-        contentFornecedores.classList.add("displayNone");
         contentCadastro.classList.remove("displayNone");
     });
 

@@ -11,6 +11,7 @@ body {
 }
 
 /* MENU LATERAL */
+
 .menu {
     /* background-color: red; */
     width: 8%;
@@ -60,7 +61,9 @@ body {
     top: 93%;
 }
 
+
 /* CONTEÚDOS */
+
 .content {
     /* background-color: green; */
     width: 92%;
@@ -142,10 +145,37 @@ button:hover {
     opacity: 0.8;
 }
 
-input {
+input,
+select,
+option {
     border: solid 1px #ccc;
     border-radius: 4px;
     padding: 10px;
+}
+
+.epi,
+.tipo,
+.cod,
+.quantidade,
+.tamanho,
+.estoque,
+.btnCadastrar {
+    display: block;
+    margin: 1%;
+}
+
+input.epi,
+input.cod,
+input.quantidade,
+input.estoque {
+    width: 30%;
+    text-align: center;
+}
+
+select.tamanho,
+select.tipo {
+    width: 31.6%;
+    text-align: center;
 }
 
 .label>div {
@@ -207,6 +237,7 @@ input {
 }
 
 /* Safari */
+
 @-webkit-keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);

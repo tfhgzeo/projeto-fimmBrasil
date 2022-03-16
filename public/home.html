@@ -22,17 +22,6 @@
         <div class="">
             <i id="btnHome" class="fa-solid fa-cart-flatbed btnHome"></i>
         </div>
-        <div>
-            <i class="fa-solid fa-chart-line btnRelarorio"></i>
-        </div>
-
-        <div>
-            <i class="fa-solid fa-list-check btnSolicitacao"></i>
-        </div>
-
-        <div>
-            <i class="fa-solid fa-handshake btnFornecedores"></i>
-        </div>
 
         <div>
             <i class="fa-solid fa-circle-plus btnCadastro"></i>
@@ -65,7 +54,7 @@
                         <input id="codFilter" type="text" name="filtraCod" value="" onkeyup="filtraCod()"
                             placeholder="Codigo">
                     </div>
-                    <div class="deleteEpi">
+                    <div class="deleteEpi displayNone">
                         <form method="get" action="/deletaEpi" id="formDeleteEpi">
                             <input id="deleteEpi" type="number" name="inputDelete" value="" placeholder="ID">
                             <input id="btnDeletEpi" type="submit" name="delete" value="Deletar">
@@ -92,59 +81,56 @@
 
         </div>
 
-        <div class="contentRelatorio">
-            <h1>Pagina de Relatórios</h1>
-        </div>
-
-        <div class="contentSolicitacao">
-            <h1>Pagina de Solicitacao</h1>
-        </div>
-
-        <div class="contentFornecedores">
-            <h1>Pagina de Fornecedores</h1>
-        </div>
-
         <div class="contentCadastro">
             <div id="cad">
                 <form id="cadastrarEpi" method="GET" action="/cadastrarEpis">
                     <h1 id="Titulo">Cadastro de Equipamentos</h1>
 
-                    <p>
-                        <label for="epi">Equipamento</label>
-                        <input id="epi" name="epi" required="required" type="text" placeholder="epi" />
-                    </p>
+                    <label class="epi" for="epi">Equipamento</label>
+                    <input class="epi" id="epi" name="epi" required="required" type="text" placeholder="epi" />
+                    <label class="cod" for="cod">Codigo</label>
+                    <input class="cod" id="cod" name="cod" required="required" type="number" placeholder="Codigo" />
 
-                    <p>
-                        <label for="cod">Codigo</label>
-                        <input id="cod" name="cod" required="required" type="number" placeholder="Codigo" />
-                    </p>
-
-                    <p>
-                        <label for="tipo">Tipo</label>
-                        <input id="tipo" name="tipo" required="required" type="text" placeholder="Tipo" />
-                    </p>
-
-                    <p>
-                        <label for="quantidade">Quantidade</label>
-                        <input id="quantidade" name="quantidade" required="required" type="number"
-                            placeholder="quantidade" />
-                    </p>
+                    <label class="tipo" for="tipo">Tipo</label>
+                    <select class="tipo" name="tipo" id="tipo">
+                        <option value="Vestimento">Vestimento</option>
+                        <option value="Calcado">Calcado</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                    <label class="quantidade" for="quantidade">Quantidade</label>
+                    <input class="quantidade" id="quantidade" name="quantidade" required="required" type="number"
+                        placeholder="quantidade" />
 
 
-                    <p>
-                        <label for="tamanho">Tamanho</label>
-                        <input id="tamanho" name="tamanho" required="required" type="text" placeholder="tamanho" />
-                    </p>
+                    <label class="tamanho" for="tamanho">Tamanho</label>
+                    <select class="tamanho" name="tamanho" id="tamanho">
+                        <option value="-">-</option>
+                        <option value="P">P</option>
+                        <option value="M">M</option>
+                        <option value="G">G</option>
+                        <option value="GG">GG</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                    </select>
 
-                    <p>
-                        <label for="estoque">Estoque Minimo</label>
-                        <input id="estoque" name="estoque" required="required" type="number"
-                            placeholder="Estoque Minimo" />
-                    </p>
 
-                    <p>
-                        <input type="submit" value="Cadastrar" />
-                    </p>
+                    <label class="estoque" for="estoque">Estoque Minimo</label>
+                    <input class="estoque" id="estoque" name="estoque" required="required" type="number"
+                        placeholder="Estoque Minimo" />
+                    <input class="btnCadastrar" type="submit" value="Cadastrar" />
+
                 </form>
             </div>
         </div>
