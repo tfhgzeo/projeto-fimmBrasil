@@ -2,7 +2,7 @@ async function connect() {
     require("dotenv").config();
     const mysql = require("mysql2/promise");
     const connection = mysql.createConnection({
-        host: process.env.DB_HOST,
+        host: process.env.DB_HOST_DEV,
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         database: process.env.DB_DATABASE,
@@ -27,10 +27,10 @@ async function VerificarMatriculaSenha(login, senha) {
     return rows;
 }
 
-async function verificaLogin(login) {
+async function verificaLogin(matricula) {
     const conn = await connect();
     const [rows] = await conn.query(
-        "select * from login where login= " + '"' + login + '"' + ";"
+        "select * from teste where Matricula= " + '"' + matricula + '"' + ";"
     );
     conn.close();
     return rows;
@@ -38,7 +38,7 @@ async function verificaLogin(login) {
 
 async function buscaUsuario() {
     const conn = await connect();
-    const [rows] = await conn.query("SELECT * FROM login;");
+    const [rows] = await conn.query("SELECT * FROM teste;");
     conn.close();
     return rows;
 }
