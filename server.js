@@ -124,8 +124,6 @@ app.get("/deletaEpi", async (req, res) => {
     }
 });
 
-app.get("/", (req, res) => {});
-
 app.post("/logarApp", async (req, res) => {
     console.log("chamou o teste");
     let matricula = req.body.matricula;
